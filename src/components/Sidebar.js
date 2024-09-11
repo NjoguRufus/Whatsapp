@@ -30,6 +30,7 @@ function Sidebar() {
 
       {/* Chat List */}
       <div className="flex-1 overflow-y-auto">
+        {/* Sample Chat */}
         <div className="p-4 hover:bg-gray-200 cursor-pointer flex items-center space-x-4">
           <img
             src="https://via.placeholder.com/40"
@@ -42,20 +43,7 @@ function Sidebar() {
           </div>
           <p className="text-xs text-gray-500">11:30 AM</p>
         </div>
-
-        {/* Add more chats below */}
-        <div className="p-4 hover:bg-gray-200 cursor-pointer flex items-center space-x-4">
-          <img
-            src="https://via.placeholder.com/40"
-            alt="Chat Avatar"
-            className="w-10 h-10 rounded-full"
-          />
-          <div className="flex-1">
-            <h4 className="text-lg font-semibold">Jane Smith</h4>
-            <p className="text-sm text-gray-600">Let's catch up later.</p>
-          </div>
-          <p className="text-xs text-gray-500">10:00 AM</p>
-        </div>
+        {/* Add more chats as needed */}
       </div>
     </div>
   );

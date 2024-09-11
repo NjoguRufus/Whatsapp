@@ -4,7 +4,6 @@ function ChatWindow() {
   const [messages, setMessages] = useState([]);
   const chatEndRef = useRef(null);
 
-  // Scroll to the bottom when new messages are added
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -13,7 +12,6 @@ function ChatWindow() {
     scrollToBottom();
   }, [messages]);
 
-  // Send message function
   const sendMessage = (event) => {
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
@@ -23,20 +21,7 @@ function ChatWindow() {
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      {/* Header */}
-      <div className="flex justify-between items-center p-4 bg-gray-200 border-b border-gray-300">
-        <div>
-          <h3 className="text-lg font-semibold">John Doe</h3>
-          <p className="text-sm text-green-500">Online</p>
-        </div>
-        <div className="flex space-x-4 text-gray-600">
-          <i className="fas fa-search"></i>
-          <i className="fas fa-ellipsis-v"></i>
-        </div>
-      </div>
-
-      {/* Messages (flex-1 to take up remaining space, justify-end to align to the bottom) */}
+    <div className="flex-1 h-screen flex flex-col">
       <div className="flex-1 p-4 overflow-y-auto flex flex-col justify-end space-y-4">
         {messages.map((message, index) => (
           <div
@@ -49,8 +34,6 @@ function ChatWindow() {
         ))}
         <div ref={chatEndRef} />
       </div>
-
-      {/* Input form */}
       <form onSubmit={sendMessage} className="flex items-center p-4 border-t border-gray-300 bg-gray-100">
         <input
           type="text"
