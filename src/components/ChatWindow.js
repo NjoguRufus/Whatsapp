@@ -34,8 +34,8 @@ function ChatWindow() {
         </div>
       </div>
 
-      {/* Messages */}
-      <div className="flex-1 p-4 overflow-y-auto">
+      {/* Messages (flex-1 to take up remaining space) */}
+      <div className="flex-1 p-4 overflow-y-auto flex flex-col justify-end space-y-4">
         {messages.map((message, index) => (
           <div
             key={index}
