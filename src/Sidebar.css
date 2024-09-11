@@ -1,0 +1,11 @@
+.sidebar {
+    width: 30%;
+    background-color: #f1f1f1;
+  }
+  .sidebar__header {
+    padding: 10px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+  }
+  
