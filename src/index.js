@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';  // Ensure Tailwind is applied globally
-import ChatWindow from './ChatWindow';
+import ChatWindow from './components/ChatWindow';
 
 ReactDOM.render(
   <React.StrictMode>
