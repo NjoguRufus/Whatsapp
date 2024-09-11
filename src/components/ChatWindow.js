@@ -4,6 +4,7 @@ function ChatWindow() {
   const [messages, setMessages] = useState([]);
   const chatEndRef = useRef(null);
 
+  // Scroll to the bottom when new messages are added
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -12,6 +13,7 @@ function ChatWindow() {
     scrollToBottom();
   }, [messages]);
 
+  // Send message function
   const sendMessage = (event) => {
     event.preventDefault();
     const newMessage = event.target.elements.message.value;
@@ -34,7 +36,7 @@ function ChatWindow() {
         </div>
       </div>
 
-      {/* Messages (flex-1 to take up remaining space) */}
+      {/* Messages (flex-1 to take up remaining space, justify-end to align to the bottom) */}
       <div className="flex-1 p-4 overflow-y-auto flex flex-col justify-end space-y-4">
         {messages.map((message, index) => (
           <div
