@@ -6,11 +6,9 @@ import './index.css';
 
 function App() {
   return (
-    <div className="app">
-      <div className="app__body">
-        <Sidebar />
-        <ChatWindow />
-      </div>
+    <div className="h-screen flex">
+      <Sidebar />
+      <ChatWindow />
     </div>
   );
 }
