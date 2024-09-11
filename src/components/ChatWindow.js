@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './ChatWindow.css';
 
 function ChatWindow() {
   const [messages, setMessages] = useState([]);
   const chatEndRef = useRef(null);
 
-  // Scroll to bottom when a new message is sent
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -23,31 +21,45 @@ function ChatWindow() {
   };
 
   return (
-    <div className="chatWindow">
-      <div className="chatWindow__header">
-        <div className="chatWindow__headerInfo">
-          <h3>John Doe</h3>
-          <p>Online</p>
+    <div className="flex flex-col h-screen">
+      {/* Header */}
+      <div className="flex justify-between items-center p-4 bg-gray-200 border-b border-gray-300">
+        <div>
+          <h3 className="text-lg font-semibold">John Doe</h3>
+          <p className="text-sm text-green-500">Online</p>
         </div>
-        <div className="chatWindow__headerIcons">
+        <div className="flex space-x-4 text-gray-600">
           <i className="fas fa-search"></i>
           <i className="fas fa-ellipsis-v"></i>
         </div>
       </div>
-      
-      <div className="chatWindow__messages">
+
+      {/* Messages */}
+      <div className="flex-1 p-4 overflow-y-auto">
         {messages.map((message, index) => (
-          <div key={index} className={`chatWindow__message ${message.sender === 'You' ? 'chatWindow__message--sent' : ''}`}>
+          <div
+            key={index}
+            className={`mb-4 p-2 max-w-xs rounded-lg ${message.sender === 'You' ? 'ml-auto bg-green-100' : 'bg-gray-200'}`}
+          >
             <p><strong>{message.sender}:</strong> {message.text}</p>
-            <span className="chatWindow__timestamp">{message.time}</span>
+            <p className="text-xs text-gray-500 text-right">{message.time}</p>
           </div>
         ))}
         <div ref={chatEndRef} />
       </div>
 
-      <form onSubmit={sendMessage} className="chatWindow__form">
-        <input type="text" name="message" placeholder="Type a message" autoFocus />
-        <button type="submit"><i className="fas fa-paper-plane"></i></button>
+      {/* Input form */}
+      <form onSubmit={sendMessage} className="flex items-center p-4 border-t border-gray-300 bg-gray-100">
+        <input
+          type="text"
+          name="message"
+          placeholder="Type a message"
+          className="flex-1 p-2 rounded-full bg-gray-200 focus:outline-none"
+          autoFocus
+        />
+        <button type="submit" className="ml-4 p-2 rounded-full bg-green-500 text-white hover:bg-green-600">
+          <i className="fas fa-paper-plane"></i>
+        </button>
       </form>
     </div>
   );
