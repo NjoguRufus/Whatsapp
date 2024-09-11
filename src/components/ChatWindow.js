@@ -39,10 +39,10 @@ function ChatWindow() {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`mb-4 p-2 max-w-xs rounded-lg ${message.sender === 'You' ? 'ml-auto bg-green-100' : 'bg-gray-200'}`}
+            className={`mb-4 p-2 max-w-xs rounded-lg ${message.sender === 'You' ? 'ml-auto bg-green-100 text-right' : 'bg-gray-200'}`}
           >
             <p><strong>{message.sender}:</strong> {message.text}</p>
-            <p className="text-xs text-gray-500 text-right">{message.time}</p>
+            <p className="text-xs text-gray-500">{message.time}</p>
           </div>
         ))}
         <div ref={chatEndRef} />
